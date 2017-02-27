@@ -90,6 +90,21 @@ public class MSButton
     public void mousePressed () 
     {
         clicked = true;
+        if(keyPressed() == true)
+          
+        else if(bombs.contains(this))
+          displayLosingMessage();
+        else if(countBombs(r, c) > 0)
+          label = countBombs(r, c);
+        else
+          buttons[r][c+1].mousePressed();
+          buttons[r][c-1].mousePressed();
+          buttons[r+1][c].mousePressed();
+          buttons[r-1][c].mousePressed();
+          buttons[r+1][c+1].mousePressed();
+          buttons[r-1][c-1].mousePressed();
+          buttons[r+1][c-1].mousePressed();
+          buttons[r-1][c+1].mousePressed();
     }
 
     public void draw () 
@@ -121,7 +136,8 @@ public class MSButton
     public int countBombs(int row, int col)
     {
         int numBombs = 0;
-        if(isValid(r, c-1) && bombs[r][c-1].isMarked())
+        if(isValid(r, c-1) && bombs.contains(buttons[r][c-1]))
+          numBombs++;
           
         return numBombs;
     }
