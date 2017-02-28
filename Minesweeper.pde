@@ -51,11 +51,12 @@ public boolean isWon()
 }
 public void displayLosingMessage()
 {
-    //your code here
+    //display all bombs
+    buttons.setLabel("You have lost!");
 }
 public void displayWinningMessage()
 {
-    //your code here
+    buttons.setLabel("You have won!");
 }
 
 public class MSButton
@@ -90,8 +91,10 @@ public class MSButton
     public void mousePressed () 
     {
         clicked = true;
-        if(keyPressed() == true)
+        if(keyPressed())
           
+          if(marked == false)
+            clicked == false;
         else if(bombs.contains(this))
           displayLosingMessage();
         else if(countBombs(r, c) > 0)
