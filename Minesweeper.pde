@@ -119,9 +119,9 @@ public class MSButton
         else if(countBombs(r, c) > 0)
           label = str(countBombs(r, c));
         else
-          for(int i = r-1; i < r+1; i++)
+          for(int i = r-1; i <= r+1; i++)
           {
-            for(int j = c-1; j < c+1; j++)
+            for(int j = c-1; j <= c+1; j++)
             {
               if(isValid(i, j))
               {
