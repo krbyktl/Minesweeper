@@ -68,6 +68,9 @@ public void displayLosingMessage()
     buttons[5][11].setLabel(" L");
     buttons[5][12].setLabel("OS");
     buttons[5][13].setLabel("T!");
+    for(int i = 0; i < NUM_ROWS; i++)
+      for(int j = 0; j < NUM_COLS; j++)
+        buttons[i][j].clicked=true;
 }
 public void displayWinningMessage()
 {
