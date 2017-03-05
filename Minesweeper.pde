@@ -5,6 +5,7 @@ int NUM_ROWS = 20;
 int NUM_COLS = 20;
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> bombs = new ArrayList <MSButton> ();
+int Bombs = 0;
 
 void setup ()
 {
@@ -35,6 +36,7 @@ public void setBombs()
     int col = (int)(Math.random()*20);
     if(!bombs.contains(buttons[row][col]))
       bombs.add(buttons[row][col]);
+      Bombs++;
   }
 }
 
@@ -46,8 +48,16 @@ public void draw ()
 }
 public boolean isWon()
 {
-    //your code here
-    return false;
+    int win = 0;
+    for(int i = 0; i < NUM_ROWS; i++)
+      for(int j =0; j < NUM_COLS; j++)
+        if(buttons[i][j].clicked)
+          if(!bombs.contains(buttons[i][j]))
+            win++;
+    if(win==(NUM_ROWS*NUM_COLS-Bombs))
+      return true;
+    else
+      return false;
 }
 public void displayLosingMessage()
 {
@@ -125,6 +135,7 @@ public class MSButton
             {
               if(isValid(i, j))
               {
+                if(!buttons[i][j].clicked)
                 buttons[i][j].mousePressed();
               }
             }
