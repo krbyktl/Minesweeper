@@ -22,7 +22,6 @@ void setup ()
         for(int c = 0; c < NUM_COLS; c++)
         {
             buttons[r][c] = new MSButton(r, c);
-          System.out.println();
         }
       }
     }   
